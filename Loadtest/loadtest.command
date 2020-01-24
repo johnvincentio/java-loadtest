@@ -8,6 +8,6 @@ cd $DEV_HOME
 #
 MYCP=$DEV_HOME/classes:$DEV_HOME/Jars/log4j-1.2.13.jar
 #
-MY_FILE=$1
+LOADTEST_FILE=$1
 #
-java -cp $MYCP io.johnvincent.loadtest.AppGui $MY_FILE
+java -cp $MYCP io.johnvincent.loadtest.AppGui $LOADTEST_FILE

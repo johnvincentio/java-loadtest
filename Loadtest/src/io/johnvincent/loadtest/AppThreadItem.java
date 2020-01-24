@@ -1,6 +1,8 @@
 
 package io.johnvincent.loadtest;
 
+import java.io.File;
+
 import io.johnvincent.trace.LogHelper;
 
 public class AppThreadItem extends Thread {
@@ -8,18 +10,20 @@ public class AppThreadItem extends Thread {
 	private int m_threadId;
 	private int m_repeat;
 	private int m_delay;
+	
 	private RunTests m_runTests;
 	private boolean m_bPleaseSuspendThisThread = true;
 	private boolean m_bStop = false;
 	
-	public AppThreadItem (AppThreads appThreads, ThreadGroup threadGroup, int threadId, Stages stages, int repeat, int delay) {
+	public AppThreadItem (AppThreads appThreads, ThreadGroup threadGroup, int threadId,
+			Stages stages, int repeat, int delay, File logDir, String browser) {
 		super (threadGroup, "Load Test Thread "+threadId);
 		LogHelper.info(">>> AppThreadItem::constructor "+threadId);
 		m_appThreads = appThreads;
 		m_threadId = threadId;
 		m_repeat = repeat;
 		m_delay = delay;
-		m_runTests = new RunTests (this, m_appThreads, stages);
+		m_runTests = new RunTests (this, m_appThreads, stages, logDir, browser);
 		LogHelper.info("<<< AppThreadItem::constructor "+m_threadId);		
 	}
 	public void setSuspend() {m_bPleaseSuspendThisThread = true;}

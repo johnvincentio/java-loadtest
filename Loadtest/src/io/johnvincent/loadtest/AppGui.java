@@ -19,16 +19,27 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.log4j.xml.DOMConfigurator;
 
 import io.johnvincent.trace.LogHelper;
 
 public class AppGui extends JFrame implements ActionListener {
-	private static final long serialVersionUID = 1;
+	private static final long serialVersionUID = 1213982410342060114L;
+	
 	private static final String RUNAPP = "Run...";
 	private static final String STOPAPP = "Stop";
 	private static final int MAX_CNTR=1000;
+	
+	private String m_strPropertiesFile = "loadtest.properties";
+	private String m_strBrowser;
+	public String getBrowser() {return m_strBrowser;}
+	private File m_LogDirectory;
+	public File getLogDirectory() {return m_LogDirectory;}
+	
 	private int m_cntr = 0;
 	private JTextArea m_messagesArea;	
 	private JTextField m_stringThreads;
@@ -73,6 +84,17 @@ public class AppGui extends JFrame implements ActionListener {
 
 	private Container makeContentPane(String[] args) {
 		System.out.println("makeContentPane; args "+args[0]);
+		Properties prop = new Properties();
+		try {
+			prop.load (new FileInputStream (m_strPropertiesFile));
+		} catch (IOException ioe) {
+			System.err.println ("Exception getting properties; " + ioe.getMessage());
+		}
+		m_strBrowser = prop.getProperty ("BROWSER");
+		System.out.println("BROWSER :"+m_strBrowser+":");
+		m_LogDirectory = new File (prop.getProperty ("LOG_DIR"));
+		System.out.println("m_LogDirectory :"+m_LogDirectory+":");
+		
 		m_stringThreads = new JTextField(4);
 		m_stringRepeat = new JTextField(2);
 		m_stringDelay = new JTextField(2);

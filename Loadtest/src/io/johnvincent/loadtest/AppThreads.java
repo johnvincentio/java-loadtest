@@ -64,7 +64,8 @@ public class AppThreads extends Thread {
 		LogHelper.info("stages :"+m_stages.toString());
 
 		for (int threadId=1; threadId<=m_threads; threadId++) {
-			AppThreadItem appThreadItem = new AppThreadItem (this, m_threadGroup, threadId, m_stages, m_repeat, m_delay);
+			AppThreadItem appThreadItem = new AppThreadItem (this, m_threadGroup, threadId,
+					m_stages, m_repeat, m_delay, m_appGui.getLogDirectory(), m_appGui.getBrowser());
 			add (appThreadItem);
 			appThreadItem.start();
 		}

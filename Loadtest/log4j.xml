@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="fileAppender" class="org.apache.log4j.FileAppender">
-		<param name="File" value="/tmp/grep.log" />
+		<param name="File" value="/tmp/loadtest.log" />
 		<param name="Append" value="true" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="[%d{ISO8601}] [%t] %p - %m%n" />
