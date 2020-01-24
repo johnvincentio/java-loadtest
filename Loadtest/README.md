@@ -3,8 +3,7 @@
 
 To execute app, use `loadtest.command <path-to-loadtest-file.xml>`
 
-
-
+`loadtest.properties`; ensure these values are correct for your system.
 
 # Loadtest
 
