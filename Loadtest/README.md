@@ -1,25 +1,20 @@
 
 # Usage
 
-To execute app, use `diffall.command`
+To execute app, use `loadtest.command <path-to-loadtest-file.xml>`
 
-Provide two directories you wish to compare.
 
-Cleaning options are for removing files that are not of interest. Thins out the forest so you can see the trees.
 
-The compare options perform the actual compare. Delete if identical allows for more cleaning out of files that are not of interest.
 
-The aim is to end up with a detailed compare log of all differences between the two directories.
+# Loadtest
 
-# Diffall
+At Github, create repository `java-loadtest`
 
-At Github, create repository `java-diffall`
-
-repo: https://github.com/johnvincentio/java-diffall
+repo: https://github.com/johnvincentio/java-loadtest
 
 ```
 cd /Users/jv/Desktop/MyDevelopment/github/java/Utilities
-create-repo java-diffall
+create-repo java-loadtest
 ```
 
 Remove non-relevant files.
@@ -27,20 +22,20 @@ Remove non-relevant files.
 ## Add `README.md`
 
 ```
-cd java-diffall
+cd java-loadtest
 ```
 
 Create `README.md`
 
 ```
-For details, see Diffall/README.md
+For details, see Loadtest/README.md
 ```
 
 ## Start Eclipse
 
 in Finder
 
-* select `/Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-diffall`
+* select `/Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-loadtest`
 * Right click, Services
   * eclipse-jee
 
@@ -51,12 +46,12 @@ in Finder
 
 Settings
 
-* Project Name: Diffall
+* Project Name: Loadtest
 * Use default location
 * JRE; Use an execution environment JRE: JavaSE-1.8
 * Create separate folders for sources and class files
 
-* Default output folder: `Diffall/classes`
+* Default output folder: `Loadtest/classes`
 
 ## Package
 
@@ -69,16 +64,16 @@ Copy code to this package and change package names.
 
 ## Script file
 
-`/Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-diffall/Diffall/diffall.command`
+`/Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-loadtest/Loadtest/loadtest.command`
 
 
 ## Create Alias
 
 In Finder
 
-* select `diffall.command`
+* select `loadtest.command`
 * right click, Make Alias
 * move alias to `/Users/jv/Desktop/MyDevelopment/github/repo_shell_scripts/mac/JVTools/`
-* rename to `diffall.command`
+* rename to `loadtest.command`
 
 # END
