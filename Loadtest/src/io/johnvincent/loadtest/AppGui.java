@@ -18,6 +18,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import java.io.File;
+
+import org.apache.log4j.xml.DOMConfigurator;
+
 import io.johnvincent.trace.LogHelper;
 
 public class AppGui extends JFrame implements ActionListener {
@@ -37,10 +41,23 @@ public class AppGui extends JFrame implements ActionListener {
 	private JProgressBar m_progress;
 	private AppThreads m_appThreads;
 
+	static {
+		init();
+	}
+	
+	/**
+	 * method to init log4j configurations
+	 */
+	private static void init() {
+		String log4jConfPath = System.getProperty("user.dir")+File.separator+"log4j.xml";
+		System.out.println("log4jConfPath "+log4jConfPath);
+		DOMConfigurator.configure(log4jConfPath);
+	}
+
 	public AppGui (String msg, String[] args) {
 		super(msg);
 
-		setContentPane(makeContentPane());
+		setContentPane(makeContentPane(args));
 		this.addWindowListener (new WindowAdapter() {
 			public void windowClosing (WindowEvent e) {
 				doStopClient();
@@ -54,7 +71,8 @@ public class AppGui extends JFrame implements ActionListener {
 		new AppGui("AppGUI", args);
 	}
 
-	private Container makeContentPane() {
+	private Container makeContentPane(String[] args) {
+		System.out.println("makeContentPane; args "+args[0]);
 		m_stringThreads = new JTextField(4);
 		m_stringRepeat = new JTextField(2);
 		m_stringDelay = new JTextField(2);
@@ -62,7 +80,7 @@ public class AppGui extends JFrame implements ActionListener {
 		m_stringThreads.setText("1");
 		m_stringRepeat.setText("1");
 		m_stringDelay.setText("3");
-		m_stringTestfile.setText("C:\\irac7\\wrkspc\\Toolbox\\Loadtest\\hes_test.xml");
+		m_stringTestfile.setText(args[0]);
 
 		JPanel paneA = new JPanel();
 		paneA.add(new JLabel("Threads #"));				
