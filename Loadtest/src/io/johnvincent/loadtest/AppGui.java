@@ -34,7 +34,7 @@ public class AppGui extends JFrame implements ActionListener {
 	private static final String STOPAPP = "Stop";
 	private static final int MAX_CNTR=1000;
 	
-	private String m_strPropertiesFile = "loadtest.properties";
+	private final String m_strPropertiesFile = "loadtest.properties";
 	private String m_strBrowser;
 	public String getBrowser() {return m_strBrowser;}
 	private File m_LogDirectory;
@@ -83,7 +83,7 @@ public class AppGui extends JFrame implements ActionListener {
 	}
 
 	private Container makeContentPane(String[] args) {
-		System.out.println("makeContentPane; args "+args[0]);
+//		System.out.println("makeContentPane; args "+args[0]);
 		Properties prop = new Properties();
 		try {
 			prop.load (new FileInputStream (m_strPropertiesFile));
@@ -102,7 +102,10 @@ public class AppGui extends JFrame implements ActionListener {
 		m_stringThreads.setText("1");
 		m_stringRepeat.setText("1");
 		m_stringDelay.setText("3");
-		m_stringTestfile.setText(args[0]);
+		if (args.length < 1)
+			m_stringTestfile.setText("");
+		else
+			m_stringTestfile.setText(args[0]);
 
 		JPanel paneA = new JPanel();
 		paneA.add(new JLabel("Threads #"));				

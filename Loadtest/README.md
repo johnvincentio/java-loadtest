@@ -65,14 +65,8 @@ Copy code to this package and change package names.
 
 `/Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-loadtest/Loadtest/loadtest.command`
 
+## Create Symbolic Link
 
-## Create Alias
-
-In Finder
-
-* select `loadtest.command`
-* right click, Make Alias
-* move alias to `/Users/jv/Desktop/MyDevelopment/github/repo_shell_scripts/mac/JVTools/`
-* rename to `loadtest.command`
-
-# END
+```
+ln -s /Users/jv/Desktop/MyDevelopment/github/java/Utilities/java-loadtest/Loadtest/loadtest.command /Users/jv/Desktop/MyDevelopment/github/repo_shell_scripts/mac/unix-scripts/bin/java-loadtest
+```
