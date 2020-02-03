@@ -79,7 +79,7 @@ public class AppGui extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 	public static void main(String[] args) {
-		new AppGui("AppGUI", args);
+		new AppGui("Loadtest", args);
 	}
 
 	private Container makeContentPane(String[] args) {
